@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLICK ON YESSS</title>
+    <style>
+
+        .confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+        body {
+            font-family: sans-serif; 
+            user-select: none;
+        }
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn {
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        button {
+            border: none;
+            background: rgb(204, 138, 149);
+            color: #fff;
+            margin-right: 10px;
+            width: 150px;
+            border-radius: 5px;
+            align-items: center;
+            height: 70px;
+        }
+        .yescontainer {
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+        .no {
+            cursor: pointer;
+        }
+        .no:hover {
+            background: rgb(143, 97, 104);
+        }
+        .yes {
+            cursor: pointer;
+        }
+        .yes:hover {
+            background: rgb(143, 97, 104);
+        }
+
+        .ikt {
+            font-size: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: #ff00e1;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    <h1>Will you be my valentine??? 😋🥰</h1>
+    <div class="btn">
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+    </div></div>
+    <div class="yescontainer">
+
+    </div>
+
+    <script>
+        const no = document.querySelector('.no');
+        const yes = document.querySelector('.yes')
+        const cont = document.querySelector('.yescontainer');
+
+        no.addEventListener('mouseover', (e)=> {
+            var x = Math.floor(Math.random() * 1000)
+            var y = Math.floor(Math.random() * 1000)
+            if(x = e.clientX) {
+                var x = Math.floor(Math.random() * 500)
+            }
+            no.style.position = 'absolute';
+            no.style.left = x + "px"
+            no.style.top = y+"px"
+        })
+        yes.addEventListener('click', ()=> {
+            document.querySelector('.container').remove();
+            var n = document.createElement('div');
+            n.classList.add('ikt');
+            createConfetti()
+            n.innerHTML = 'Aww I lovee you 😘😘';
+            cont.appendChild(n)
+        })
+
+        function createConfetti() {
+  for (let i = 0; i < 150; i++) {
+    let confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+
+    confetti.style.animationDuration =
+      2 + Math.random() * 3 + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 5000);
+  }
+}
+    </script>
+</body>
+</html>
+
