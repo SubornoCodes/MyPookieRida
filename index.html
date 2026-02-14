@@ -107,6 +107,16 @@ position: absolute;
             no.style.left = x + "px"
             no.style.top = y+"px"
         })
+        no.addEventListener('click', (e)=> {
+            var x = Math.floor(Math.random() * 1000)
+            var y = Math.floor(Math.random() * 1000)
+            if(x = e.clientX) {
+                var x = Math.floor(Math.random() * 500)
+            }
+            no.style.position = 'absolute';
+            no.style.left = x + "px"
+            no.style.top = y+"px"
+        })
         yes.addEventListener('click', ()=> {
             document.querySelector('.container').remove();
             var n = document.createElement('div');
